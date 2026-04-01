@@ -1,5 +1,5 @@
-# 🔐 Pujan's Login Web Application
-### Flask + HTML Assignment — GitHub & Render Deployment Guide
+# Pujan's Login Web Application
+### Flask + HTML Assignment
 
 ---
 
@@ -7,76 +7,73 @@
 
 ```
 pujan_login_app/
-├── app.py              ← Python Flask backend
-├── requirements.txt    ← Python packages (flask + gunicorn)
-├── Procfile            ← Tells Render how to run the app
-├── .gitignore          ← Files Git should ignore
+├── app.py              ← Python Flask backend (run this!)
+├── requirements.txt    ← Python packages needed
+├── users.json          ← Auto-created when you register
 └── templates/
-    ├── login.html
-    ├── register.html
-    └── dashboard.html
+    ├── login.html      ← Login page
+    ├── register.html   ← Registration page
+    └── dashboard.html  ← Success page after login
 ```
 
 ---
 
-## 💻 Run Locally (on your PC)
+## 🚀 How to Run (Step by Step)
 
-```bash
-# Step 1 - Install packages
-sudo apt install python3-flask -y
-
-# Step 2 - Run the app
-python3 app.py
-
-# Step 3 - Open browser at: http://127.0.0.1:5000
+### Step 1 — Install Flask
+Open your terminal / command prompt and type:
 ```
+pip install flask
+```
+
+### Step 2 — Go to the project folder
+```
+cd pujan_login_app
+```
+
+### Step 3 — Run the app
+```
+python app.py
+```
+
+### Step 4 — Open in browser
+Go to: **http://127.0.0.1:5000**
 
 ---
 
-## 🐙 PART 1 — Push to GitHub
+## 📥 Sample Flow (as required)
 
-### 1. Install Git
-```bash
-sudo apt install git -y
-```
-
-### 2. Set your Git identity
-```bash
-git config --global user.name "Pujan"
-git config --global user.email "youremail@gmail.com"
-```
-
-### 3. Create repo on GitHub
-- Go to https://github.com → click "+" → "New repository"
-- Name: pujan-login-app → Public → Create repository
-
-### 4. Push your code
-```bash
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/YOURUSERNAME/pujan-login-app.git
-git push -u origin main
-```
+1. Open browser → goes to **Login page**
+2. Click "Create one" → opens **Register page**
+3. Fill in username + password → click **Create Account**
+4. Data saved in `users.json` file ✅
+5. Go to Login → enter same credentials → click **Sign In**
+6. If correct → **Dashboard** shown with welcome message ✅
+7. If wrong → error message shown ✅
 
 ---
 
-## 🚀 PART 2 — Deploy on Render (Free)
+## 🔧 How the Backend Works (Simple Explanation)
 
-1. Go to https://render.com → Sign up with GitHub
-2. Click "New +" → "Web Service" → Connect your repo
-3. Settings:
-   - Runtime: Python 3
-   - Build Command: pip install -r requirements.txt
-   - Start Command: gunicorn app:app
-   - Instance Type: Free
-4. Environment Variables → Add:
-   - Key: SECRET_KEY  Value: pujan_super_secret_2024
-5. Click "Create Web Service" → wait 2-3 mins
-6. Your live URL: https://pujan-login-app.onrender.com 🎉
+- `Flask` is a micro web framework for Python
+- `render_template()` → shows the HTML pages
+- `request.form` → reads what the user typed in the form
+- `json` module → saves/loads user data from a file
+- `session` → remembers who is logged in
 
 ---
 
-*Built by Pujan · Flask + HTML Assignment*
-# python-login-app
+## ✅Requirements Covered
+
+| Requirement | Status |
+|---|---|
+| Register page with username + password | ✅ |
+| Login page with username + password | ✅ |
+| Data stored in file (users.json) | ✅ |
+| Login validation | ✅ |
+| Success/error messages | ✅ |
+| Beautiful frontend | ✅ |
+
+---
+
+*Built by Pujan*
